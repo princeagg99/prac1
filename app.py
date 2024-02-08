@@ -1,42 +1,19 @@
 import streamlit as st
-def summarize_gpt():
 
-    session_state = st.session_state
+button1 = st.button('Check 1')
 
-    if 's1' not in session_state:
-        session_state.s1 = "start"
-    if 's2' not in session_state:
-        session_state.s2 = "start"
+if st.session_state.get('button') != True:
 
-    st.markdown("""<span style="font-size: 24px; ">Summarize key findings of the case.</span>""", unsafe_allow_html=True)
-    st.write() #This is to have gap between
-    #summ_gpt = st.button("Summarize")
-    if session_state.s1 == "start":
-        if st.button('Summarize'):
-            with st.spinner("Summarizing...."):
-        
-                st.write("this is the summarization")
-    
-                
-                session_state.s1 == "feed"
-    
-                if session_state.s1 == "feed":
-                    st.markdown("#### Summarization Feedback:")
-                    col_1, col_2, col_3, col_4, col_5, col_6 = st.columns(6)
-                    with col_1:
-                        if st.button("👍🏻",key=4):
-                            
-                            session_state.s2 = "call"
-                             
-            
-            
-                    with col_2:
-                        if st.button("👎🏻",key=5):
-                            session_state.s2 = "call"
-                           
+    st.session_state['button'] = button1
 
-    if session_state.s2 == "call":
-       st.write('Feedback is recorded!')
-        
-        
-summarize_gpt()
+if st.session_state['button'] == True:
+
+    st.write("button1 is True")
+
+    if st.button('Check 2'):
+
+        st.write("Hello, it's working")
+
+        st.session_state['button'] = False
+
+        st.checkbox('Reload')
