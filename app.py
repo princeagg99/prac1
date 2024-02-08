@@ -22,4 +22,5 @@ def summarize_gpt():
     
             st.session_state['button'] = False
 
+summarize_gpt()
 
