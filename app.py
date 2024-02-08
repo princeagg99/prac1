@@ -1,23 +1,20 @@
 import streamlit as st
 
-# Define function to initialize session state
-def init_session_state():
-    if 'button_clicked' not in st.session_state:
-        st.session_state.button_clicked = False
+# Create a session state object
+session_state = st.session_state
 
-# Initialize session state
-init_session_state()
+# Initialize session state variables for inner button
+if 'inner_button_clicked' not in session_state:
+    session_state.inner_button_clicked = False
 
-# Define function to handle button clicks
-def handle_button_clicks():
-    if st.button('Button 1'):
-        st.write('Button 1 clicked!')
-    if st.button('Button 2'):
-        st.session_state.button_clicked = True
+# Outer button
+if st.button('Outer Button'):
+    st.write('Outer Button clicked')
 
-# Display buttons and handle clicks
-handle_button_clicks()
+    # Inner button
+    if st.button('Inner Button'):
+        session_state.inner_button_clicked = True
 
-# Show message if button 2 is clicked
-if st.session_state.button_clicked:
-    st.write('Button 2 clicked! This message will persist even after the page reloads.')
+# Show a message if Inner Button has been clicked
+if session_state.inner_button_clicked:
+    st.write('Inner Button clicked')
