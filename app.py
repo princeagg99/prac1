@@ -8,7 +8,7 @@ if 'button_clicked' not in session_state:
     session_state.button_clicked = False
 
 # Create the first button
-if st.button('Button 1'):
+if st.button('summarize'):
     st.write('Button 1 was ## clicked')
 
 # Create the second button
