@@ -1,10 +1,13 @@
 import streamlit as st
 
-# Initialize session state
-if 'show_second_button' not in st.session_state:
-    st.session_state.show_second_button = False
+
 
 def summarize_gpt():
+    # Initialize session state
+    if 'show_second_button' not in st.session_state:
+        st.session_state.show_second_button = False
+
+    
     # First button
     if st.button("button1"):
         st.write("first button clicked!")
