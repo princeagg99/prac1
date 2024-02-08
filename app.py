@@ -4,13 +4,13 @@ def summarize_gpt():
 
     
     if 'summary_genenrated' not in st.session_state:
-        st.session_state.summary_genenrated = False
+        st.session_state.summary_genenrated = True
 
 
     st.markdown("""<span style="font-size: 24px; ">Summarize key findings of the case.</span>""", unsafe_allow_html=True)
     st.write() #This is to have gap between
     summ_gpt = st.button("Summarize-me")
-    if st.session_state.summary_genenrated = False:
+    if st.session_state.summary_genenrated == True:
         
         if summ_gpt:
             
@@ -26,10 +26,10 @@ def summarize_gpt():
                         st.button("👍🏻",key=4)
                          
                         st.write("*Feedback is recorded*")
-                        st.session_state.summary_genenrated = True
+                        st.session_state.summary_genenrated = False
     
 
-    elif st.session_state.summary_genenrated == True:
+    elif st.session_state.summary_genenrated == False:
         st.write("*Thank you, your feedback is recorded*") 
 
 
