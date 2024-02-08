@@ -1,6 +1,6 @@
 import streamlit as st
 
-button1 = st.button('Check 1')
+button1 = st.button('summarize....')
 
 if st.session_state.get('button') != True:
 
@@ -8,11 +8,11 @@ if st.session_state.get('button') != True:
 
 if st.session_state['button'] == True:
 
-    st.write("button1 is True")
+    st.write("this is the summary")
 
-    if st.button('Check 2'):
+    if st.button('give your feedback'):
 
-        st.write("Hello, it's working")
+        st.write("recorded")
 
         st.session_state['button'] = False
 
