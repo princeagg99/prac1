@@ -36,7 +36,7 @@ def summarize_gpt():
                     st.write("*Feedback is recorded*")
                     # st.session_state.summary_genenrated = True
 
-    elif st.session_state.summary_genenrated = False:
+    elif st.session_state.summary_genenrated == False:
             st.write("*Thank you, your feedback is recorded*") 
 
 
