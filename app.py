@@ -39,9 +39,9 @@ def summarize_gpt():
                 # Set the session state variable to True when Button 2 is clicked
                 session_state.button_clicked = True
         # Show a message if Button 2 has been clicked
-        if session_state.button_clicked:
-            #st.write(st.session_state["tmp_summary_gpt"])
-            st.write('Thanks! Your Feedback is recorded ')
+    if session_state.button_clicked:
+        #st.write(st.session_state["tmp_summary_gpt"])
+        st.write('Thanks! Your Feedback is recorded ')
 
 
 summarize_gpt()
