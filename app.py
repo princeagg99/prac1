@@ -20,7 +20,7 @@ def summarize_gpt():
                 st.markdown("#### Summarization Feedback:")
                 col_1, col_2, col_3, col_4, col_5, col_6 = st.columns(6)
     
-                if session_state.s1 == True:
+                if session_state.s1 == False:
                     with col_1:
                         if st.button("👍🏻",key=4):
                             
