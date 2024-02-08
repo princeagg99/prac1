@@ -1,12 +1,21 @@
 import streamlit as st
 
-# Create a placeholder to dynamically update content
-output_placeholder = st.empty()
+# Create a session state object
+session_state = st.session_state
 
-# Create a button
-button_clicked = st.button("Click me!")
+# Initialize session state variables
+if 'button_clicked' not in session_state:
+    session_state.button_clicked = False
 
-# Check if the button is clicked
-if button_clicked:
-    # Update the content of the placeholder without reloading the entire page
-    output_placeholder.write("Button clicked!")
+# Create the first button
+if st.button('Button 1'):
+    st.write('Button 1 was ## clicked')
+
+# Create the second button
+if st.button('Button 2'):
+    # Set the session state variable to True when Button 2 is clicked
+    session_state.button_clicked = True
+
+# Show a message if Button 2 has been clicked
+if session_state.button_clicked:
+    st.write('Button 2  was ##clicked')
