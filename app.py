@@ -1,19 +1,25 @@
 import streamlit as st
 
-button1 = st.button('summarize....')
 
-if st.session_state.get('button') != True:
+def summarize_gpt():
+    st.markdown("""<span style="font-size: 24px; ">Summarize key findings of the case.</span>""", unsafe_allow_html=True)
+    st.write() #This is to have gap between
+    
+    button1 = st.button("Summarize")
 
-    st.session_state['button'] = button1
+    if st.session_state.get('button') != True:
+    
+        st.session_state['button'] = button1
+    st.markdown("#### Summarization Feedback:")
 
-if st.session_state['button'] == True:
+    if st.session_state['button'] == True:
+    
+        st.write("this is the summary")
+    
+        if st.button("👍🏻"):
+    
+            st.write("recorded")
+    
+            st.session_state['button'] = False
 
-    st.write("this is the summary")
 
-    if st.button('give your feedback'):
-
-        st.write("recorded")
-
-        st.session_state['button'] = False
-
-        st.checkbox('Reload')
