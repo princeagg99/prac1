@@ -40,6 +40,10 @@ def summarize_gpt():
             st.write("*Thank you, your feedback is recorded*") 
 
 
+
+summarize_gpt()
+
+
                    
 
 
