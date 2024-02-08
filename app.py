@@ -24,8 +24,8 @@ def summarize_gpt():
                     with col_1:
                         if st.button("👍🏻",key=4):
                             
-                            session_state.s2 = True
-                            
+                            session_state.s2 = False
+                             
     
     
                     with col_2:
@@ -33,10 +33,10 @@ def summarize_gpt():
                             
     
     
-                            session_state.s2 = True
+                            session_state.s2 = False
                            
 
-    if session_state.s2 == True:
+    if session_state.s2 == False:
        st.write('Feedback is recorded!')
         
         
