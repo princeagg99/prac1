@@ -24,20 +24,25 @@ def summarize_gpt():
             #st.write(response_summ_gpt)
             #st.session_state["tmp_summary_gpt"] = response_summ_gpt
             st.markdown("#### Summarization Feedback:")
+            col_1, col_2, col_3, col_4, col_5, col_6 = st.columns(6)
+            with col_1:
+                z=st.button("👍🏻"):
+            with col_2:
+                z2=st.button("👎🏻"):
             
             
 
     # Create the second button
         
-    col_1, col_2, col_3, col_4, col_5, col_6 = st.columns(6)
-    with col_1:
-        if st.button("👍🏻"):
-            # Set the session state variable to True when Button 2 is clicked
-            session_state.button_clicked = True
-    with col_2:
-        if st.button("👎🏻"):
-            # Set the session state variable to True when Button 2 is clicked
-            session_state.button_clicked = True
+    
+  
+    if z:
+        # Set the session state variable to True when Button 2 is clicked
+        session_state.button_clicked = True
+   
+    if z2:
+        # Set the session state variable to True when Button 2 is clicked
+        session_state.button_clicked = True
     # Show a message if Button 2 has been clicked
     if session_state.button_clicked:
         #st.write(st.session_state["tmp_summary_gpt"])
