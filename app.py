@@ -31,7 +31,7 @@ def summarize_gpt():
 
         with col_2:
             if st.button("👎🏻",key=5):
-            session_state.s2 = "call"
+                session_state.s2 = "call"
                            
 
     if session_state.s2 == "call":
