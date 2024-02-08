@@ -6,7 +6,7 @@ def summarize_gpt():
     if 's1' not in session_state:
         session_state.s1 = False
     if 's2' not in session_state:
-        session_state.s2 = False
+        session_state.s2 = True
 
     st.markdown("""<span style="font-size: 24px; ">Summarize key findings of the case.</span>""", unsafe_allow_html=True)
     st.write() #This is to have gap between
@@ -36,7 +36,7 @@ def summarize_gpt():
                             session_state.s2 = False
                            
 
-    if session_state.s2 == True:
+    if session_state.s2 == False:
        st.write('Feedback is recorded!')
         
         
