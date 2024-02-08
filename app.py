@@ -23,10 +23,13 @@ def summarize_gpt():
                 col_1, col_2, col_3, col_4, col_5, col_6 = st.columns(6)
     
                 with col_1:
-                        st.button("👍🏻",key=4)
+                        z=st.button("👍🏻",key=4)
+                        if z:
+                            st.write("*Feedback is recorded*")
+                            st.session_state.summary_genenrated = False
+                            
                          
-                        st.write("*Feedback is recorded*")
-                        st.session_state.summary_genenrated = False
+                        
     
 
     elif st.session_state.summary_genenrated == False:
