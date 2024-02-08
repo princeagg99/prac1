@@ -17,11 +17,12 @@ def summarize_gpt():
         
                 st.write("this is the summarization")
     
-                st.markdown("#### Summarization Feedback:")
-                col_1, col_2, col_3, col_4, col_5, col_6 = st.columns(6)
+                
                 session_state.s1 == "feed"
     
     if session_state.s1 == "feed":
+        st.markdown("#### Summarization Feedback:")
+        col_1, col_2, col_3, col_4, col_5, col_6 = st.columns(6)
         with col_1:
             if st.button("👍🏻",key=4):
                 
