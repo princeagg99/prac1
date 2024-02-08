@@ -1,6 +1,8 @@
 import streamlit as st
 
-
+# Initialize session state
+if 'show_second_button' not in st.session_state:
+    st.session_state.show_second_button = False
 
 def summarize_gpt():
     # First button
@@ -17,9 +19,7 @@ def summarize_gpt():
         if st.button("button 2"):
             st.write("Second button clicked!")
 
-# Initialize session state
-if 'show_second_button' not in st.session_state:
-    st.session_state.show_second_button = False
+
 
 # Call the nested button function
 summarize_gpt()
