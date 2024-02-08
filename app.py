@@ -26,9 +26,9 @@ def summarize_gpt():
             st.markdown("#### Summarization Feedback:")
             col_1, col_2, col_3, col_4, col_5, col_6 = st.columns(6)
             with col_1:
-                z=st.button("👍🏻"):
+                z=st.button("👍🏻")
             with col_2:
-                z2=st.button("👎🏻"):
+                z2=st.button("👎🏻")
             
             
 
