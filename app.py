@@ -36,8 +36,8 @@ def summarize_gpt():
                             session_state.s2 = False
                            
 
-    if session_state.s2 == False:
-       st.write('Feedback is recorded!')
+                if session_state.s2 == False:
+                   st.write('Feedback is recorded!')
         
         
 summarize_gpt()
