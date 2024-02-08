@@ -10,9 +10,10 @@ def summarize_gpt():
     if st.session_state.get('button') != True:
     
         st.session_state['button'] = button1
-    st.markdown("#### Summarization Feedback:")
+    
 
     if st.session_state['button'] == True:
+        st.markdown("#### Summarization Feedback:")
     
         st.write("this is the summary")
     
