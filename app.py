@@ -10,7 +10,7 @@ def summarize_gpt(tmp_table_gpt):
     st.markdown("""<span style="font-size: 24px; ">Summarize key findings of the case.</span>""", unsafe_allow_html=True)
     st.write() #This is to have gap between
     #summ_gpt = st.button("Summarize")
-    if session_state.s1 = False:
+    if session_state.s1 == False:
         if st.button('Summarize'):
             with st.spinner("Summarizing...."):
         
@@ -19,7 +19,7 @@ def summarize_gpt(tmp_table_gpt):
                 st.markdown("#### Summarization Feedback:")
                 col_1, col_2, col_3, col_4, col_5, col_6 = st.columns(6)
     
-                if session_state.s1 = True:
+                if session_state.s1 == True:
                     with col_1:
                         if st.button("👍🏻",key=4):
                             
