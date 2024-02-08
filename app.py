@@ -37,3 +37,6 @@ def summarize_gpt(tmp_table_gpt):
 
     if session_state.s2 == True:
        st.write('Feedback is recorded!')
+
+
+summarize_gpt()
