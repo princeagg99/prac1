@@ -1,21 +1,22 @@
 import streamlit as st
 
-# Create a session state object
-session_state = st.session_state
+def nested_button_function():
+    # First button
+    if st.button("Click me to show the second button"):
+        # Display the second button only if the first button is clicked
+        if st.session_state.show_second_button is None:
+            st.session_state.show_second_button = False
+        if not st.session_state.show_second_button:
+            st.session_state.show_second_button = True
+    # Second button
+    if st.session_state.show_second_button:
+        # This button won't reload the page
+        if st.button("Second Button (No Page Reload)"):
+            st.write("Second button clicked!")
 
-# Initialize session state variables
-if 'button_clicked' not in session_state:
-    session_state.button_clicked = False
+# Initialize session state
+if 'show_second_button' not in st.session_state:
+    st.session_state.show_second_button = False
 
-# Outer button
-if st.button('Outer Button'):
-    st.write('Outer Button clicked')
-
-    # Inner button
-    if st.button('Inner Button'):
-        # Set the session state variable to True when Inner Button is clicked
-        session_state.button_clicked = True
-
-# Show a message if Inner Button has been clicked
-if session_state.button_clicked:
-    st.write('Inner Button clicked')
+# Call the nested button function
+nested_button_function()
