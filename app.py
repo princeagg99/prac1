@@ -1,3 +1,4 @@
+import streamlit as st
 def summarize_gpt():
     st.markdown("""<span style="font-size: 24px; ">Summarize key findings of the case.</span>""", unsafe_allow_html=True)
     st.write() #This is to have gap between
