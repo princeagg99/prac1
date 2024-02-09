@@ -1,26 +1,49 @@
 import streamlit as st
 import pandas as pd
 
-# Function to parse user input and convert it into a dataframe
-def parse_input_to_dataframe(input_text):
-    # Split the input text by newline characters
-    rows = input_text.split('\n')
-    # Split each row by commas to get the values
-    data = [row.split(',') for row in rows]
-    # Create a DataFrame from the data
+# Function to create an editable DataFrame
+def create_editable_df():
+    # Create a sample DataFrame
+    data = {
+        'Name': ['John', 'Alice', 'Bob'],
+        'Age': [30, 25, 35],
+        'City': ['New York', 'Los Angeles', 'Chicago']
+    }
     df = pd.DataFrame(data)
-    return df
+    
+    # Create an empty DataFrame to hold the edited values
+    edited_df = pd.DataFrame(columns=df.columns)
+    
+    # Display the DataFrame and allow editing
+    editable_df = st.table(df)
+    
+    # Loop through the rows of the original DataFrame
+    for i, row in enumerate(df.itertuples(index=False)):
+        # Create an empty dictionary to hold the edited values for this row
+        edited_row = {}
+        # Loop through each column
+        for j, col in enumerate(df.columns):
+            # Get the edited value from the user input
+            edited_value = st.text_input(f"Edit {col} for row {i+1}", row[j])
+            # Add the edited value to the dictionary
+            edited_row[col] = edited_value
+        # Append the edited row to the edited DataFrame
+        edited_df = edited_df.append(edited_row, ignore_index=True)
+    
+    return edited_df
 
-# Display a textarea for user input
-input_text = st.text_area("Enter data (comma-separated values, one row per line):")
+# Main function
+def main():
+    st.title("Editable DataFrame in Streamlit")
+    
+    # Create an editable DataFrame
+    edited_df = create_editable_df()
+    
+    # Display the edited DataFrame
+    st.write("Edited DataFrame:", edited_df)
 
-# Parse the user input and display the dataframe
-if input_text:
-    df = parse_input_to_dataframe(input_text)
-    st.dataframe(df)
-
-
-
+if __name__ == "__main__":
+    main()
 
 
 
