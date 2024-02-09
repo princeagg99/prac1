@@ -1,52 +1,20 @@
 import streamlit as st
 
-def get_color_based_on_range(value):
-    if value < 25:
-        return "red"
-    elif value < 50:
-        return "orange"
-    elif value < 75:
-        return "yellow"
+def display_score_with_title(title, score):
+    if score >= 0.7:
+        color = "green"
+    elif score >= 0.4:
+        color = "orange"
     else:
-        return "green"
+        color = "red"
+    
+    st.markdown(f"## {title}")
+    st.markdown(f'<p style="color:{color}; font-size: 24px;">Probability Score: {score}</p>', unsafe_allow_html=True)
 
-def main():
-    st.title("Colored Icon/Button based on Number Range")
-    
-    # Get user input
-    number_input = st.slider("Select a number:", min_value=0, max_value=100, value=50)
-    
-    # Get color based on number range
-    color = get_color_based_on_range(number_input)
-    
-    # Add some padding and set button's style using CSS
-    st.markdown(
-        f"""
-        <style>
-        .button {{
-            background-color: {color};
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            text-align: center;
-            display: inline-block;
-            font-size: 16px;
-            margin-top: 20px;
-        }}
-        </style>
-        """
-        , unsafe_allow_html=True
-    )
-    
-    # Display the button with the chosen color
-    st.markdown(
-        f'<button class="button">Number is {number_input}</button>',
-        unsafe_allow_html=True
-    )
+score = 0.75  # Example probability score
+title = "Model Confidence"
+display_score_with_title(title, score)
 
-if __name__ == "__main__":
-    main()
 
 
 # import streamlit as st
