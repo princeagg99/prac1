@@ -1,23 +1,24 @@
 import streamlit as st
 import pandas as pd
 
-import streamlit as st
-import pandas as pd
+# Function to parse user input and convert it into a dataframe
+def parse_input_to_dataframe(input_text):
+    # Split the input text by newline characters
+    rows = input_text.split('\n')
+    # Split each row by commas to get the values
+    data = [row.split(',') for row in rows]
+    # Create a DataFrame from the data
+    df = pd.DataFrame(data)
+    return df
 
-# Create a sample dataframe
-data = {
-    'Name': ['John', 'Anna', 'Peter', 'Linda'],
-    'Age': [28, 35, 40, 25],
-    'Gender': ['Male', 'Female', 'Male', 'Female']
-}
-df = pd.DataFrame(data)
+# Display a textarea for user input
+input_text = st.text_area("Enter data (comma-separated values, one row per line):")
 
-# Display the dataframe with editable parameter set to True
-editable_df = st.dataframe(df, editable=True)
+# Parse the user input and display the dataframe
+if input_text:
+    df = parse_input_to_dataframe(input_text)
+    st.dataframe(df)
 
-# Optionally, you can capture the edited dataframe
-# if you want to do something with it later
-# edited_data = editable_df.data
 
 
 
