@@ -1,34 +1,23 @@
 import streamlit as st
 import pandas as pd
 
-# Create a function to render editable DataFrame
-def render_editable_df():
-    # Initialize DataFrame with some data
-    data = {'Column 1': [1, 2, 3],
-            'Column 2': [4, 5, 6],
-            'Column 3': [7, 8, 9]}
-    df = pd.DataFrame(data)
+import streamlit as st
+import pandas as pd
 
-    # Display DataFrame
-    st.write(df)
+# Create a sample dataframe
+data = {
+    'Name': ['John', 'Anna', 'Peter', 'Linda'],
+    'Age': [28, 35, 40, 25],
+    'Gender': ['Male', 'Female', 'Male', 'Female']
+}
+df = pd.DataFrame(data)
 
-    # Allow users to edit DataFrame
-    st.write("Edit DataFrame:")
-    for index, row in df.iterrows():
-        for col in df.columns:
-            df.at[index, col] = st.number_input(f"Edit {col} for row {index+1}", value=row[col])
+# Display the dataframe with editable parameter set to True
+editable_df = st.dataframe(df, editable=True)
 
-    # Display the updated DataFrame
-    st.write("Updated DataFrame:")
-    st.write(df)
-
-# Main function to run the Streamlit app
-def main():
-    st.title("Editable DataFrame Example")
-    render_editable_df()
-
-if __name__ == "__main__":
-    main()
+# Optionally, you can capture the edited dataframe
+# if you want to do something with it later
+# edited_data = editable_df.data
 
 
 
