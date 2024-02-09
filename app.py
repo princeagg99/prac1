@@ -1,50 +1,39 @@
 import streamlit as st
 import pandas as pd
 
-# Function to create an editable DataFrame
-def create_editable_df():
-    # Create a sample DataFrame
-    data = {
-        'Name': ['John', 'Alice', 'Bob'],
-        'Age': [30, 25, 35],
-        'City': ['New York', 'Los Angeles', 'Chicago']
-    }
-    df = pd.DataFrame(data)
-    
-    # Create an empty DataFrame to hold the edited values
-    edited_df = pd.DataFrame(columns=df.columns)
-    
-    # Display the DataFrame and allow editing
-    editable_df = st.table(df)
-    
-    # Loop through the rows of the original DataFrame
-    for i, row in enumerate(df.itertuples(index=False)):
-        # Create an empty dictionary to hold the edited values for this row
-        edited_row = {}
-        # Loop through each column
-        for j, col in enumerate(df.columns):
-            # Get the edited value from the user input
-            edited_value = st.text_input(f"Edit {col} for row {i+1}", row[j])
-            # Add the edited value to the dictionary
-            edited_row[col] = edited_value
-        # Append the edited row to the edited DataFrame
-        edited_df = edited_df.append(edited_row, ignore_index=True)
-    
-    return edited_df
+# Function to create or get the primary DataFrame from session state
+def get_primary_df():
+    if 'primary_df' not in st.session_state:
+        # Initialize DataFrame with some data
+        data = {'Column 1': [1, 2, 3],
+                'Column 2': [4, 5, 6],
+                'Column 3': [7, 8, 9]}
+        st.session_state.primary_df = pd.DataFrame(data)
+    return st.session_state.primary_df
 
-# Main function
+# Create a function to render editable DataFrame
+def render_editable_df(df):
+    # Display DataFrame
+    st.write(df)
+
+    # Allow users to edit DataFrame
+    st.write("Edit DataFrame:")
+    for index, row in df.iterrows():
+        for col in df.columns:
+            df.at[index, col] = st.number_input(f"Edit {col} for row {index+1}", value=row[col])
+
+    # Display the updated DataFrame
+    st.write("Updated DataFrame:")
+    st.write(df)
+
+# Main function to run the Streamlit app
 def main():
-    st.title("Editable DataFrame in Streamlit")
-    
-    # Create an editable DataFrame
-    edited_df = create_editable_df()
-    
-    # Display the edited DataFrame
-    st.write("Edited DataFrame:", edited_df)
+    st.title("Editable DataFrame Example")
+    primary_df = get_primary_df()
+    render_editable_df(primary_df)
 
 if __name__ == "__main__":
     main()
-
 
 
 
