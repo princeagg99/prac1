@@ -1,59 +1,52 @@
 import streamlit as st
-import pandas as pd
 
-# Function to create or get the primary DataFrame from session state
-def get_primary_df():
-    if 'primary_df' not in st.session_state:
-        # Initialize DataFrame with some data
-        data = {'Column 1': [1, 2, 3],
-                'Column 2': [4, 5, 6],
-                'Column 3': [7, 8, 9]}
-        st.session_state.primary_df = pd.DataFrame(data)
-    return st.session_state.primary_df
+def get_color_based_on_range(value):
+    if value < 25:
+        return "red"
+    elif value < 50:
+        return "orange"
+    elif value < 75:
+        return "yellow"
+    else:
+        return "green"
 
-# Create a function to render editable DataFrame
-def render_editable_df(df):
-    # Display DataFrame
-    st.write(df)
-
-    # Allow users to edit DataFrame
-    st.write("Edit DataFrame:")
-    for index, row in df.iterrows():
-        for col in df.columns:
-            df.at[index, col] = st.number_input(f"Edit {col} for row {index+1}", value=row[col])
-
-    # Display the updated DataFrame
-    st.write("Updated DataFrame:")
-    st.write(df)
-
-# Main function to run the Streamlit app
 def main():
-    st.title("Editable DataFrame Example")
-    primary_df = get_primary_df()
-    render_editable_df(primary_df)
+    st.title("Colored Icon/Button based on Number Range")
+    
+    # Get user input
+    number_input = st.slider("Select a number:", min_value=0, max_value=100, value=50)
+    
+    # Get color based on number range
+    color = get_color_based_on_range(number_input)
+    
+    # Add some padding and set button's style using CSS
+    st.markdown(
+        f"""
+        <style>
+        .button {{
+            background-color: {color};
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 20px;
+        }}
+        </style>
+        """
+        , unsafe_allow_html=True
+    )
+    
+    # Display the button with the chosen color
+    st.markdown(
+        f'<button class="button">Number is {number_input}</button>',
+        unsafe_allow_html=True
+    )
 
 if __name__ == "__main__":
     main()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 # import streamlit as st
