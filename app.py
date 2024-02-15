@@ -1,10 +1,5 @@
 import streamlit as st
 
-label = r'''
-$\textsf{
-    \Huge Text \huge Text \LARGE Text \Large Text 
-    \large Text \normalsize Text \small Text 
-    \footnotesize Text \scriptsize Text \tiny Text 
-}$
-'''
-st.text_input(label)
+
+
+st.text_input(r"$\textsf{\Large Enter text here}$")
