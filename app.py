@@ -7,3 +7,4 @@ $\textsf{
     \footnotesize Text \scriptsize Text \tiny Text 
 }$
 '''
+st.text_input(label)
