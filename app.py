@@ -2,4 +2,4 @@ import streamlit as st
 
 
 
-st.text_input(r"$\textsf{\Large Enter text here}$")
+st.text_input(r"$\textsf{\Huge  Enter text here}$")
