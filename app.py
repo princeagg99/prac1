@@ -1,25 +1,24 @@
 import streamlit as st
 
 def button_clicked(button_name):
-    st.write(f"You clicked on button '{button_name}'")
-
-# Define the text for each button
-button_texts = {
-    "Button 1": "This is the text for Button 1",
-    "Button 2": "This is the text for Button 2",
-    "Button 3": "This is the text for Button 3",
-    "Button 4": "This is the text for Button 4",
-    "Button 5": "This is the text for Button 5",
-    "Button 6": "This is the text for Button 6"
-}
-
-# Create the buttons and associate each one with its respective text and click handler
-for button_name, text in button_texts.items():
-    if st.button(button_name):
-        button_clicked(button_name)
-
-# Create a space to display the output when a button is clicked
-st.write("\nOutput:")
+   
+    # Define the text for each button
+    button_texts = {
+        "Button 1": "This is the text for Button 1",
+        "Button 2": "This is the text for Button 2",
+        "Button 3": "This is the text for Button 3",
+        "Button 4": "This is the text for Button 4",
+        "Button 5": "This is the text for Button 5",
+        "Button 6": "This is the text for Button 6"
+    }
+    
+    # Create the buttons and associate each one with its respective text and click handler
+    for button_name, text in button_texts.items():
+        if st.button(button_name):
+            button_clicked(button_name)
+    
+    # Create a space to display the output when a button is clicked
+    st.write("\nOutput:")
 
 
 
