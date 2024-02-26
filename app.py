@@ -1,6 +1,6 @@
 import streamlit as st
 
-col1, col2, col3 = st.columns([6,3,2])
+col1, col2, col3 = st.columns([6,3,6])
 
 with col1:
     button1 = st.button('"What are the products that are associated with this customer?"')
