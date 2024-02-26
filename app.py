@@ -8,13 +8,13 @@ with col1:
         st.write("hello1")
 
 with col2:
-    button2 = st.button('Button 2')
+    button2 = st.button('"What asasaasre the products that are associated with this customer?"')
     if button2:
         st.write("hello2")
         # Do something...
 
 with col3:
-    button3 = st.button('Button 3')
+    button3 = st.button("What asdascasv the products that are associated with this customer?")
 
 
 
