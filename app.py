@@ -1,25 +1,32 @@
 import streamlit as st
 
-def button_clicked(button_name):
-    st.write(f"You clicked on button '{button_name}'")
+def button_action(button_name):
+    return f"You clicked the {button_name} button!"
 
-# Define the text for each button
-button_texts = {
-    "Button 1": "This is the text for Button 1",
-    "Button 2": "This is the text for Button 2",
-    "Button 3": "This is the text for Button 3",
-    "Button 4": "This is the text for Button 4",
-    "Button 5": "This is the text for Button 5",
-    "Button 6": "This is the text for Button 6"
-}
+def main():
+    st.title("Multiple Buttons Streamlit App")
+    
+    # Define dictionary to store button outputs
+    button_outputs = {}
 
-# Create the buttons and associate each one with its respective text and click handler
-for button_name, text in button_texts.items():
-    if st.button(button_name):
-        button_clicked(button_name)
+    # Define buttons
+    buttons = ["Button 1", "Button 2", "Button 3"]
 
-# Create a space to display the output when a button is clicked
-st.write("\nOutput:")
+    # Iterate through buttons
+    for button in buttons:
+        # Check if button is clicked
+        if st.button(button):
+            # Store button output in dictionary
+            button_outputs[button] = button_action(button)
+
+    # Display outputs
+    st.header("Button Outputs")
+    for button, output in button_outputs.items():
+        st.write(f"- {button}: {output}")
+
+if __name__ == "__main__":
+    main()
+
 
 
 
