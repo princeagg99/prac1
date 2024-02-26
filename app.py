@@ -20,7 +20,7 @@ def button_clicked(button_name):
     # Create a space to display the output when a button is clicked
     st.write("\nOutput:")
 
-
+button_clicked()
 
 
 
