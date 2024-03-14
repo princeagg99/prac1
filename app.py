@@ -11,7 +11,8 @@ def print_with_spinner(output1, output2, output3):
         st.write(output2)
 
     with st.spinner("Processing output 3..."):
-        time.sleep(2)  # Simulating some processing time
+        time.sleep(2) 
+        st.write(ab)# Simulating some processing time
         st.write(output3)
 
 # Example usage
